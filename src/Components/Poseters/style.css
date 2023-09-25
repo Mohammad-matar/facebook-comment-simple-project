@@ -1,0 +1,32 @@
+.Posters_Container{
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    background-color: var(--white);
+    margin: 50px auto;
+    padding: 0 25px;
+    position: relative;
+    border-radius: 20px;
+    max-width: 1800px;
+}
+.posters_icon_details{
+    padding: 10px;
+    display: flex;
+    gap: 2rem;
+}
+.poster_nameOf_TheAuthor{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
+}
+.author_name{
+    font-size: 24px;
+}
+.author_time{
+    color: var(--footer-text);
+}
+.author_content{
+    font-size: 20px;
+    line-height: 37.48px;
+}

@@ -1,0 +1,15 @@
+.btn-component {
+    display: block;
+    background-color: var(--secondary-color);
+    border: 0;
+    border-radius: 10px;
+    color: white;
+    min-width: 141px;
+    height: 50px;
+    /* transition: all 0.5s ease-out; */
+}
+
+/* .btn-component:hover {
+    background-color: var(--background-color) !important;
+    color: var(--primary-color) !important;
+} */

@@ -1,0 +1,84 @@
+.navBar_Container {
+  height: 78px;
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 2000px;
+}
+.navbar_spacing{
+display: flex;
+justify-content: space-between;
+align-items: center;
+width: 90%;
+}
+.navbar_leftSide {
+  display: flex;
+  align-items: center;
+}
+.FcSearch_loupe {
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    left: 10px;
+    top: 50%; 
+    transform: translateY(-50%);
+    z-index: 1;
+  }
+  
+  .navbar_input_searchbar {
+    display: flex;
+    align-items: center;
+    position: relative;
+  }
+  
+  .search_input {
+    width: 370px;
+    height: 49px;
+    border-radius: 25px;
+    background-color: var(--background-color);
+    padding-left: 45px;
+    font-size: 20px;
+    border: 0;
+  }
+/* //////////////// right side */
+.navbar_rightSide{
+    display: flex;
+    width: 16%;
+    justify-content: space-between;
+    align-items: center;
+}
+.navbar_rightSide p{
+    color: var(--secondary-color);
+    font-size: 20px;
+    line-height: 37.48px;
+}
+
+@media(max-width:1450px){
+  .navbar_rightSide{
+    width: 25%;
+  }
+}
+@media(max-width:1350px){
+  .navbar_rightSide{
+    width: 30%;
+  }
+}
+@media(max-width:1150px){
+  .navbar_rightSide{
+    width: 35%;
+  }
+}
+@media(max-width:800px){
+  .navBar_Container{
+    height: 150px;
+  }
+  .navbar_spacing{
+    display: flex;
+    flex-direction: column-reverse;
+  }
+  .navbar_rightSide{
+    width: 100%;
+  }
+  
+}
