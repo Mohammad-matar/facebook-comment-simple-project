@@ -48,3 +48,8 @@
       padding: 0 6px;
     }
   }
+  @media(max-width:500px){
+    .Posting_Container {
+        width: 85%;
+    }
+}

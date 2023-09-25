@@ -12,6 +12,7 @@ justify-content: space-between;
 align-items: center;
 width: 90%;
 }
+
 .navbar_leftSide {
   display: flex;
   align-items: center;
@@ -53,7 +54,11 @@ width: 90%;
     font-size: 20px;
     line-height: 37.48px;
 }
-
+@media(max-width:1850px){
+  .navbar_rightSide{
+    width: 20%;
+  }
+}
 @media(max-width:1450px){
   .navbar_rightSide{
     width: 25%;
@@ -80,5 +85,4 @@ width: 90%;
   .navbar_rightSide{
     width: 100%;
   }
-  
 }
