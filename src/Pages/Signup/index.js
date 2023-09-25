@@ -1,9 +1,8 @@
 import React from 'react'
 import Button from '../../Components/Button'
 import theme from '../../theme.json'
-import "./style.css"
 
-function Login() {
+function Signup() {
     return (
         <div className='longin_Container'>
             <div className='login_content'>
@@ -16,6 +15,7 @@ function Login() {
                     <div className='login_right_side'>
                         <form className='login_right_side_form'>
                             <div className='login_input'>
+                                <input type='text' placeholder='Name' />
                                 <input type='email' placeholder='Email' />
                                 <input type='password' placeholder='Password' />
                             </div>
@@ -26,18 +26,12 @@ function Login() {
                                 >
                                     Login
                                 </Button>
-                                <Button
-                                    startBgColor={theme.white}
-                                    startColor={theme.secondaryColor}
-                                    className='login_btn_forget_password'
-                                >
-                                    Forget Password?
-                                </Button>
+
                                 <Button
                                     startBgColor={theme.addButton}
                                     startColor={theme.white}
                                 >
-                                    Create new account</Button>
+                                    Already have account</Button>
                             </div>
                         </form>
                     </div>
@@ -47,9 +41,8 @@ function Login() {
                     </div>
                 </div>
             </div>
-            
-        </div>
-    )
+
+        </div>)
 }
 
-export default Login
+export default Signup

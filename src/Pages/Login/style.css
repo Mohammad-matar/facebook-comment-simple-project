@@ -6,7 +6,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 70vh;
+  height: 100vh;
 }
 
 .longin_left_side {
@@ -29,7 +29,6 @@
   background-color: var(--white);
   border-radius: 15px;
   box-shadow: 0px 3px 19px 0px var(--secondary-color);
-  width: 30%;
 }
 .login_right_side_form {
   padding: 3rem;
@@ -37,44 +36,104 @@
   flex-direction: column;
   align-items: center;
 }
-.login_input{
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-    width: 100%;
-    padding-bottom: 20px;
+.login_input {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  width: 100%;
+  padding-bottom: 20px;
 }
 
 .login_input input {
-    width: 100%;
-    padding: 15px;
-    border-radius: 10px;
-    border: 1px solid var(--background-color);
-    font-size: 20px;
+  width: 100%;
+  padding: 15px;
+  border-radius: 10px;
+  border: 1px solid var(--background-color);
+  font-size: 20px;
 }
-.login_btn_container{
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    position: relative;
+.login_btn_container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  position: relative;
 }
-.login_btn{
-    width: 100%;
-    font-size: 18px;
+.login_btn {
+  width: 100%;
+  font-size: 18px;
 }
-.login_btn_forget_password{
-    width: 100%;
-    font-size: 18px;
-    border-bottom:1px solid var(--footer-text)
+.login_btn_forget_password {
+  width: 100%;
+  font-size: 18px;
+  border-bottom: 1px solid var(--footer-text);
 }
 
-.login_create_apage{
-    display: flex;
-    justify-content: end;
-    width: 80%;
-    font-size: 24px;
+.login_create_apage {
+  display: flex;
+  justify-content: end;
+  font-size: 20px;
 }
 .login_create_apage span {
-    font-weight: bold;
+  font-weight: bold;
 }
+
+@media (max-width: 1150px) {
+  .longin_left_side {
+    width: 40%;
+    padding: 3rem;
+  }
+}
+@media (max-width: 950px) {
+  .longin_left_side {
+    width: 35%;
+  }
+  .longin_left_side h1 {
+    font-size: 55px;
+  }
+  .longin_left_side p {
+    font-size: 25px;
+  }
+  .login_right_side_form {
+    width: 75%;
+  }
+  .login_right_side {
+    width: 80%;
+  }
+  .login_input input {
+    width: 90%;
+  }
+}
+@media (max-width: 800px) {
+    .login_content{
+        flex-direction: column;
+        height: 100%;
+    }
+    .longin_left_side {
+    width: 90%;
+    margin: 0;
+    padding: 0;
+    }
+    .longin_left_side p{
+        width: 100%;
+    }
+    .login_right_side{
+        width: 100%;
+        
+    }
+    .login_right_side_form{
+        width: 80%;
+    }
+  }
+  @media (max-width: 500px) {
+    .login_right_side_form{
+        width: 80%;
+    }
+    .login_right_side {
+        width: 90%;
+        margin: 0 17px;
+    }
+    .login_create_apage{
+        width: 90%;
+        margin: 0 17px;
+    }
+  }
