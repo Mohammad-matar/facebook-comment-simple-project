@@ -1,0 +1,80 @@
+.longin_Container {
+  background-color: var(--background-color);
+}
+
+.login_content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 70vh;
+}
+
+.longin_left_side {
+  width: 30%;
+  margin-bottom: 10rem;
+}
+
+.longin_left_side h1 {
+  font-size: 70px;
+  color: var(--secondary-color);
+}
+
+.longin_left_side p {
+  font-size: 30px;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  width: 75%;
+}
+
+.login_right_side {
+  background-color: var(--white);
+  border-radius: 15px;
+  box-shadow: 0px 3px 19px 0px var(--secondary-color);
+  width: 30%;
+}
+.login_right_side_form {
+  padding: 3rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.login_input{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    width: 100%;
+    padding-bottom: 20px;
+}
+
+.login_input input {
+    width: 100%;
+    padding: 15px;
+    border-radius: 10px;
+    border: 1px solid var(--background-color);
+    font-size: 20px;
+}
+.login_btn_container{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    position: relative;
+}
+.login_btn{
+    width: 100%;
+    font-size: 18px;
+}
+.login_btn_forget_password{
+    width: 100%;
+    font-size: 18px;
+    border-bottom:1px solid var(--footer-text)
+}
+
+.login_create_apage{
+    display: flex;
+    justify-content: end;
+    width: 80%;
+    font-size: 24px;
+}
+.login_create_apage span {
+    font-weight: bold;
+}
