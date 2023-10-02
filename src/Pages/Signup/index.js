@@ -14,6 +14,11 @@ function Signup() {
         console.log(data)
     }
 
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        console.log("Kousa")
+    }
+
     return (
         <div className='longin_Container'>
             <div className='login_content'>
@@ -24,7 +29,9 @@ function Signup() {
 
                 <div>
                     <div className='login_right_side'>
-                        <form className='login_right_side_form'>
+                        <form className='login_right_side_form'
+                            onSubmit={handleSubmit}
+                        >
                             <div className='login_input'>
                                 <input
                                     name='name'
@@ -51,10 +58,13 @@ function Signup() {
                                     required
                                 />
                             </div>
-                            <div className='login_btn_container'>
+                            <div
+                                className='login_btn_container'
+                            >
                                 <Button
                                     startBgColor={theme.secondaryColor}
                                     className='login_btn'
+                                    type="submit"
                                 >
                                     Login
                                 </Button>
