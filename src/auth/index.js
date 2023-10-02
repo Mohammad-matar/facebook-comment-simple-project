@@ -16,13 +16,16 @@ export const AuthProvider = ({ children }) => {
     const login = (token) => {
         localStorage.setItem("token", token);
     }
+    const signup = (token) => {
+        localStorage.setItem("token", token);
+    }
 
     const logout = () => {
         setUser(null)
         localStorage.removeItem("token")
     }
     return (
-        <AuthContext.Provider value={{ user, login, logout, authorizationToken }}>
+        <AuthContext.Provider value={{ user, login, logout, signup, authorizationToken }}>
             {children}
         </AuthContext.Provider>
     )

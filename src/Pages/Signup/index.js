@@ -1,22 +1,53 @@
 import React, { useState } from 'react'
 import Button from '../../Components/Button'
 import theme from '../../theme.json'
+import axios from 'axios';
+import { useAuth } from '../../auth'
+import { useNavigate } from 'react-router-dom';
 
 function Signup() {
+    const auth = useAuth()
     const [data, setData] = useState({
         name: '',
         email: '',
         password: '',
     })
+    const navigate = useNavigate()
 
     const handleChange = (e) => {
         setData({ ...data, [e.target.name]: e.target.value });
-        console.log(data)
+        // console.log(data)
     }
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
         console.log("Kousa")
+    }
+
+    const handleSignup = (e) => {
+        e.preventDefault()
+        if (!data.name) {
+            alert("Name is required")
+        } else if (!data.email) {
+            alert("Email is required")
+        } else if (!data.password) {
+            alert("Password is required")
+
+        } else {
+            axios.post("https://comment-task-api.onrender.com/users/signup", data)
+                .then((res) => {
+                    console.log(res.data.token)
+                    auth.signup(res.data.token)
+                    // localStorage.setItem("token", res.data.token)
+                    alert("SignUp Successfuly")
+                    navigate('/');
+                })
+                .catch(error => {
+                    console.log(error)
+                    alert(error.response.data.message)
+
+                })
+        }
     }
 
     return (
@@ -65,8 +96,9 @@ function Signup() {
                                     startBgColor={theme.secondaryColor}
                                     className='login_btn'
                                     type="submit"
+                                    onClick={handleSignup}
                                 >
-                                    Login
+                                    Sign Up
                                 </Button>
 
                                 <Button
