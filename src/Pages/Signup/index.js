@@ -1,8 +1,19 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Button from '../../Components/Button'
 import theme from '../../theme.json'
 
 function Signup() {
+    const [data, setData] = useState({
+        name: '',
+        email: '',
+        password: '',
+    })
+
+    const handleChange = (e) => {
+        setData({ ...data, [e.target.name]: e.target.value });
+        console.log(data)
+    }
+
     return (
         <div className='longin_Container'>
             <div className='login_content'>
@@ -15,9 +26,30 @@ function Signup() {
                     <div className='login_right_side'>
                         <form className='login_right_side_form'>
                             <div className='login_input'>
-                                <input type='text' placeholder='Name' />
-                                <input type='email' placeholder='Email' />
-                                <input type='password' placeholder='Password' />
+                                <input
+                                    name='name'
+                                    type='text'
+                                    placeholder='Name'
+                                    // value={data.name}
+                                    onChange={handleChange}
+                                    required
+
+                                />
+                                <input
+                                    name='email'
+                                    type='email'
+                                    placeholder='Email'
+                                    // value={data.email}
+                                    onChange={handleChange}
+                                    required
+                                />
+                                <input
+                                    name='password'
+                                    type='password'
+                                    placeholder='Password'
+                                    onChange={handleChange}
+                                    required
+                                />
                             </div>
                             <div className='login_btn_container'>
                                 <Button
