@@ -21,7 +21,11 @@ function Signup() {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        console.log("Kousa")
+        // console.log("Kousa")
+    }
+
+    const navigationToLogin = () => {
+        navigate('/login');
     }
 
     const handleSignup = (e) => {
@@ -36,7 +40,7 @@ function Signup() {
         } else {
             axios.post("https://comment-task-api.onrender.com/users/signup", data)
                 .then((res) => {
-                    console.log(res.data.token)
+                    // console.log(res.data.token)
                     auth.signup(res.data.token)
                     // localStorage.setItem("token", res.data.token)
                     alert("SignUp Successfuly")
@@ -44,7 +48,7 @@ function Signup() {
                 })
                 .catch(error => {
                     console.log(error)
-                    alert(error.response.data.message)
+                    alert(error.message)
 
                 })
         }
@@ -104,6 +108,7 @@ function Signup() {
                                 <Button
                                     startBgColor={theme.addButton}
                                     startColor={theme.white}
+                                    onClick={navigationToLogin}
                                 >
                                     Already have account</Button>
                             </div>
