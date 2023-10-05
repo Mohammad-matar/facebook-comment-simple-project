@@ -9,7 +9,7 @@ const instance = axios.create({
 });
 
 // Retrieve the token from local storage
-const accessToken = localStorage.getItem('accessToken'); // Replace 'accessToken' with the actual key you use
+const accessToken = localStorage.getItem('token'); // Replace 'accessToken' with the actual key you use
 
 if (accessToken) {
     // Set the Authorization header with the token if it exists in local storage

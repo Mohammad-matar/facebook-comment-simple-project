@@ -6,25 +6,25 @@ import instance from '../../instance';
 
 function Posting() {
     //onchange lal input w nmarre2a bl axios body ma3 l token bl header
-    const [data, setData] = useState({});
+    const [data, setData] = useState({ text: "" });
 
     const handleChange = (e) => {
         setData({ ...data, [e.target.name]: e.target.value })
         // console.log(data)
     }
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        // console.log("kiki")
-    }
-    // Search for interceptors 
 
-    instance.post('/posts', data)
-        .then((res) => {
-            setData(res.data)
-            console.log(res)
-        }).catch((err) => {
-            console.log(err)
-        })
+    const handleSubmit = async () => {
+        await instance.post('/posts', data)
+            .then((res) => {
+                setData(res)
+                console.log(res)
+                setData({ text: "" })
+            }).catch((err) => {
+                console.log(err)
+            })
+    }
+
+
 
     return (
         <div className='Posting_Container'>
@@ -37,6 +37,7 @@ function Posting() {
                         className='posting_input_post'
                         name='text'
                         onChange={handleChange}
+                        value={data.text}
                     />
                 </div>
                 <div className='posting_btn'>
