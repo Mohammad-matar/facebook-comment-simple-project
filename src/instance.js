@@ -17,3 +17,10 @@ if (accessToken) {
 }
 
 export default instance;
+
+export function getPosts() {
+    return (
+        axios.get('https://comment-task-api.onrender.com/posts')
+            .then(res => res.data)
+    )
+}
