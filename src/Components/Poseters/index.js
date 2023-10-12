@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from 'react'
-// import AuthorImage from '../AuthorImage'
 import placeholder from '../../Asset/placeholder.png'
 import "./style.css"
-import axios from 'axios'
 import instance from '../../instance';
 import moment from 'moment/moment';
 
@@ -20,7 +18,6 @@ function Posters() {
                 setData(res.data.data)
                 console.log(res.data.data)
                 setIsLoading(false)
-                // getPosts()
             }).catch((err) => {
                 console.log(err)
             })
@@ -32,7 +29,7 @@ function Posters() {
                 Array.isArray(data) ? (
                     data.map((posters) => {
                         return (
-                            <div className='Posters_Container' key={posters.id}>
+                            <div className='Posters_Container' key={posters._id}>
                                 <div className='posters_icon_details'>
                                     <div >
                                         {posters.user_id.image ? < img src={posters.user_id.image} alt='user_image' className='PosterImg' /> : <img src={placeholder} alt='placeholder' className='PosterImg' />}
@@ -65,9 +62,4 @@ function Posters() {
     )
 }
 
-// return (
-//     <div className='Posters_Container'>
-
-//     </div>
-// )
 export default Posters
