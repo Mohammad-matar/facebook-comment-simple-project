@@ -1,12 +1,24 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Logo from '../Logo'
 import { FcSearch } from 'react-icons/fc'
-import ProfileImage from '../ProfileImage'
+import placeholder from '../../Asset/placeholder.png'
 import Button from '../Button'
 import './style.css'
+import { useAuth } from '../../auth'
 
 
 const NavBar = () => {
+    const { user, logout } = useAuth()
+    // const [user, setUser] = useState(null)
+
+    const handleLogout = () => {
+        // localStorage.removeItem('token');https://cloud.mongodb.com/v2/6515560c8b92261029f28f06#/clusters
+        // setUser(null)
+        // window.location.reload();
+        logout()
+    }
+
+
     return (
         <div className='navBar_Container'>
             <div className='navbar_spacing'>
@@ -20,12 +32,11 @@ const NavBar = () => {
 
                 <div className='navbar_rightSide'>
                     <div>
-                        <ProfileImage />
-                    </div>
+                        {user?.image ? < img src={user?.image} alt='user_image' className='PosterImg' /> : <img src={placeholder} alt='placeholder' className='PosterImg' />}                    </div>
                     <div>
-                        <p> Name </p>
+                        <p> {user?.name} </p>
                     </div>
-                    <Button>Logout</Button>
+                    <Button onClick={handleLogout}>Logout</Button>
                 </div>
             </div>
         </div>

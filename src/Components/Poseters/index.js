@@ -1,81 +1,73 @@
-import React from 'react'
-import AuthorImage from '../AuthorImage'
+import React, { useEffect, useState } from 'react'
+// import AuthorImage from '../AuthorImage'
+import placeholder from '../../Asset/placeholder.png'
 import "./style.css"
+import axios from 'axios'
+import instance from '../../instance';
+import moment from 'moment/moment';
 
 function Posters() {
+    const [data, setData] = useState()
+    const [isLoading, setIsLoading] = useState(true)
+
+    useEffect(() => {
+        getData()
+    }, [])
+
+    const getData = async () => {
+        await instance.get('/posts')
+            .then((res) => {
+                setData(res.data.data)
+                console.log(res.data.data)
+                setIsLoading(false)
+                // getPosts()
+            }).catch((err) => {
+                console.log(err)
+            })
+    }
+
     return (
         <>
-            <div className='Posters_Container'>
-                <div className='posters_icon_details'>
-                    <div>
-                        <AuthorImage />
-                    </div>
+            {isLoading ? <h1>Loading...</h1> :
+                Array.isArray(data) ? (
+                    data.map((posters) => {
+                        return (
+                            <div className='Posters_Container' key={posters.id}>
+                                <div className='posters_icon_details'>
+                                    <div >
+                                        {posters.user_id.image ? < img src={posters.user_id.image} alt='user_image' className='PosterImg' /> : <img src={placeholder} alt='placeholder' className='PosterImg' />}
+                                    </div>
 
-                    <div className='poster_nameOf_TheAuthor'>
-                        <div className='author_name'>
-                            Name of the Author
-                        </div>
-                        <div className='author_time'>
-                            1 min ago
-                        </div>
-                    </div>
-                </div>
+                                    <div className='poster_nameOf_TheAuthor'>
+                                        <div className='author_name'>
+                                            {posters.user_id.name}
+                                        </div>
+                                        <div className='author_time'>
+                                            {moment(posters.createdAt).format("MMM Do YYYY, h:mm a")}
+                                        </div>
+                                    </div>
+                                </div>
 
-                <div className='author_content'>
-                    <p>Ut aut pelit ea vid untotatior seratin imperit omnihilibus endi te cones eos perchil evendion consequ assinventias dolorei cipsae in recus debis nest am nectum quam ipiciet hiliquis aribusciunt.<br />
-                        Lupta diciendest unt aturiatior ad ma doles ut dolorrum volupta qui cus, officab oritibus.<br />
-                        Da inimil in comnis il es a nitiunde ni ommolorerum volut et idisqui omnietur, nem resed molenimus eari corioreiur sin numet velesequi verspietur.</p>
-                </div>
-            </div>
-
-            <div className='Posters_Container'>
-                <div className='posters_icon_details'>
-                    <div>
-                        <AuthorImage />
-                    </div>
-
-                    <div className='poster_nameOf_TheAuthor'>
-                        <div className='author_name'>
-                            Name of the Author
-                        </div>
-                        <div className='author_time'>
-                            1 min ago
-                        </div>
-                    </div>
-                </div>
-
-                <div className='author_content'>
-                    <p>Ut aut pelit ea vid untotatior seratin imperit omnihilibus endi te cones eos perchil evendion consequ assinventias dolorei cipsae in recus debis nest am nectum quam ipiciet hiliquis aribusciunt.<br />
-                        Lupta diciendest unt aturiatior ad ma doles ut dolorrum volupta qui cus, officab oritibus.<br />
-                        Da inimil in comnis il es a nitiunde ni ommolorerum volut et idisqui omnietur, nem resed molenimus eari corioreiur sin numet velesequi verspietur.</p>
-                </div>
-            </div>
-
-            <div className='Posters_Container'>
-                <div className='posters_icon_details'>
-                    <div>
-                        <AuthorImage />
-                    </div>
-
-                    <div className='poster_nameOf_TheAuthor'>
-                        <div className='author_name'>
-                            Name of the Author
-                        </div>
-                        <div className='author_time'>
-                            1 min ago
-                        </div>
-                    </div>
-                </div>
-
-                <div className='author_content'>
-                    <p>Ut aut pelit ea vid untotatior seratin imperit omnihilibus endi te cones eos perchil evendion consequ assinventias dolorei cipsae in recus debis nest am nectum quam ipiciet hiliquis aribusciunt.<br />
-                        Lupta diciendest unt aturiatior ad ma doles ut dolorrum volupta qui cus, officab oritibus.<br />
-                        Da inimil in comnis il es a nitiunde ni ommolorerum volut et idisqui omnietur, nem resed molenimus eari corioreiur sin numet velesequi verspietur.</p>
-                </div>
-            </div>
+                                <div className='author_content'>
+                                    <p>
+                                        {posters.text}
+                                    </p>
+                                </div>
+                            </div>
+                        );
+                    })
+                ) : (
+                    <p>No data available.</p>
+                )
+            }
         </>
 
     )
 }
 
+// return (
+//     <div className='Posters_Container'>
+
+//     </div>
+// )
 export default Posters
